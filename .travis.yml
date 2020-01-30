@@ -41,11 +41,13 @@ env:
 
 install:
     # Install test dependencies.
-    - pip install ansible ansible-lint docker
+    - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible; else pip install ansible==$ANSIBLE_VERSION; fi
+    - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible-lint; fi
 
 script:
     # Run tests.
     - ansible-lint site.yml
+    - ansible-playbook --version
 
 notifications:
     webhooks: https://galaxy.ansible.com/api/v1/notifications/
