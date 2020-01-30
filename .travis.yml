@@ -16,18 +16,15 @@ env:
     - ANSIBLE_VERSION=2.7.15
     - ANSIBLE_VERSION=2.7.5
     - ANSIBLE_VERSION=2.7.4
-
     - ANSIBLE_VERSION=2.6.11
     - ANSIBLE_VERSION=2.6.10
     - ANSIBLE_VERSION=2.6.9
-
     - ANSIBLE_VERSION=2.5.14
     - ANSIBLE_VERSION=2.5.13
 
-
 install:
     # Install test dependencies.
-    - pip install ansible==$ANSIBLE_VERSION
+    - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible ; else pip install ansible==$ANSIBLE_VERSION; fi
     - pip install ansible-lint
 
 script:
