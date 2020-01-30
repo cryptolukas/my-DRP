@@ -35,7 +35,7 @@
 
 - name: Modify User Arcones
   user:
-    name: "arcones"
+    name: arcones
     comment: Marta Arcones
     shell: /bin/bash
     uid: 2001
