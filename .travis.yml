@@ -1,10 +1,19 @@
 ---
 language: python
-python: "3.8"
 services: docker
 
 env:
     - ANSIBLE_VERSION=latest
+    - ANSIBLE_VERSION=2.9.3
+    - ANSIBLE_VERSION=2.9.2
+    - ANSIBLE_VERSION=2.9.1
+    - ANSIBLE_VERSION=2.8.8
+    - ANSIBLE_VERSION=2.8.7
+    - ANSIBLE_VERSION=2.8.6
+    - ANSIBLE_VERSION=2.8.5
+    - ANSIBLE_VERSION=2.8.4
+    - ANSIBLE_VERSION=2.7.16
+    - ANSIBLE_VERSION=2.7.15
     - ANSIBLE_VERSION=2.7.5
     - ANSIBLE_VERSION=2.7.4
     - ANSIBLE_VERSION=2.7.3
@@ -41,7 +50,8 @@ env:
 
 install:
     # Install test dependencies.
-    - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible; else pip install ansible==$ANSIBLE_VERSION; fi
+    - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible ; else pip install ansible==$ANSIBLE_VERSION; fi
+    - pip install ansible-lint
 
 script:
     # Run tests.
